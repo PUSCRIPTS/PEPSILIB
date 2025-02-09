@@ -477,7 +477,7 @@ local library = {
 		easingDirection = Enum.EasingDirection.Out
 	},
 	colors = {
-		main = Color3.fromRGB(217,77,77),
+		main = Color3.fromRGB(255, 39, 39),
 		background = Color3.fromRGB(40, 40, 40),
 		outerBorder = Color3.fromRGB(15, 15, 15),
 		innerBorder = Color3.fromRGB(73, 63, 73),
@@ -7306,21 +7306,21 @@ function library:CreateWindow(options, ...)
 		options.LastTab = true
 		local designer = windowFunctions:CreateTab(options)
 		local colorsection = designer:CreateSection({
-			Name = "Colors"
+			Name = "| Theme Colors |"
 		})
 		local backgroundsection = designer:CreateSection({
-			Name = "Background",
+			Name = "| Background |",
 			Side = "right"
 		})
 		local detailssection = designer:CreateSection({
-			Name = "More Info"
+			Name = "| Info |"
 		})
 		local filessection = designer:CreateSection({
-			Name = "Profiles",
+			Name = "| Profiles |",
 			Side = "right"
 		})
 		local settingssection = designer:CreateSection({
-			Name = "Settings",
+			Name = "| UI Settings |",
 			Side = "right"
 		})
 		local designerelements = {}
@@ -7352,9 +7352,9 @@ function library:CreateWindow(options, ...)
 		}
 		local daaata = {{"AddTextbox", "__Designer.Textbox.ImageAssetID", backgroundsection, {
 			Name = "Image Asset ID",
-			Placeholder = "rbxassetid://4427304036",
+			Placeholder = "",
 			Flag = "__Designer.Background.ImageAssetID",
-			Value = "rbxassetid://4427304036",
+			Value = "",
 			Callback = updatecolorsnotween
 		}}, {"AddColorpicker", "__Designer.Colorpicker.ImageColor", backgroundsection, {
 			Name = "Image Color",
@@ -7391,13 +7391,13 @@ function library:CreateWindow(options, ...)
 				persistoptions.Workspace = n or o
 			end
 		}}, {"AddPersistence", "__Designer.Persistence.WorkspaceProfile", filessection, persistoptions}, {"AddButton", "__Designer.Button.TerminateGUI", settingssection, {{
-			Name = "Terminate GUI",
+			Name = "Unload UI",
 			Callback = library.unload
 		}, {
-			Name = "Reset GUI",
+			Name = "Reset UI",
 			Callback = resetall
 		}, {
-			Name = "Reset Designer",
+			Name = "Reset Theme",
 			Callback = function()
 				destroyrainbows = true
 				pcall(function()
@@ -7409,7 +7409,7 @@ function library:CreateWindow(options, ...)
 				end)
 			end
 		}}}, {"AddKeybind", "__Designer.Keybind.ShowHideKey", settingssection, {
-			Name = "Show/Hide Key",
+			Name = "Show/Hide Keybind",
 			Location = library.configuration,
 			Flag = "__Designer.Settings.ShowHideKey",
 			LocationFlag = "hideKeybind",
@@ -7418,9 +7418,8 @@ function library:CreateWindow(options, ...)
 			Callback = function()
 				lasthidebing = os.clock()
 			end
-		}}, {"AddLabel", "__Designer.Label.Version", settingssection, {
-			Name = "Library Version: " .. tostring(library.Version or "?")
-		}}}
+		}},
+	}
 		if setclipboard and daaata[8] then
 			local common_table = daaata[8][4]
 			if common_table then
@@ -7473,7 +7472,7 @@ function library:CreateWindow(options, ...)
 		end
 		if options.Credit ~= false then
 			daaata[1 + #daaata] = {"AddLabel", "__Designer.Label.Creator", detailssection, {
-				Text = "Library by Pepsi#5229 "
+				Text = "Discord: discord.gg/fxscripts "
 			}}
 		elseif "Gee, thanks for your support." then
 		end
