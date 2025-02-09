@@ -828,7 +828,9 @@ local keyHandler = {
 	notAllowedMouseInputs = {
 		[Enum.UserInputType.MouseMovement] = true,
 		[Enum.UserInputType.MouseWheel] = true,
-	},
+		[Enum.UserInputType.MouseButton1] = true,
+		[Enum.UserInputType.MouseButton2] = true,
+		[Enum.UserInputType.MouseButton3] = true
 	allowedKeys = {
 		[Enum.KeyCode.LeftShift] = "LShift",
 		[Enum.KeyCode.RightShift] = "RShift",
@@ -874,11 +876,6 @@ local keyHandler = {
 		[Enum.KeyCode.Plus] = "+",
 		[Enum.KeyCode.Period] = ".",
 		[Enum.KeyCode.Backquote] = "`"
-	},
-	AllowedMouseInputs = {
-		[Enum.UserInputType.MouseButton1] = MB1,
-		[Enum.UserInputType.MouseButton2] = MB2,
-		[Enum.UserInputType.MouseButton3] = MB3
 	}
 }
 local SeverAllConnections = nil
