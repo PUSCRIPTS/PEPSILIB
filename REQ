@@ -828,9 +828,9 @@ local keyHandler = {
 	notAllowedMouseInputs = {
 		[Enum.UserInputType.MouseMovement] = true,
 		[Enum.UserInputType.MouseWheel] = true,
-		[Enum.UserInputType.MouseButton1] = true,
-		[Enum.UserInputType.MouseButton2] = true,
-		[Enum.UserInputType.MouseButton3] = true
+		[Enum.UserInputType.MouseButton1] = false,
+		[Enum.UserInputType.MouseButton2] = false,
+		[Enum.UserInputType.MouseButton3] = false
 	},
 	allowedKeys = {
 		[Enum.KeyCode.LeftShift] = "LShift",
